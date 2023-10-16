@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,10 @@ namespace Blackjack
 
         public Card(VALUE v, SUIT s)
         {
+            string path = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).FullName;
             val = v;
             suit = s;
-            imgPath = "img\\" + s + "\\" + v + ".png";
+            imgPath = path + "\\src\\img\\" + s + "\\" + v + ".png";
         }
 
         public Card (string s)

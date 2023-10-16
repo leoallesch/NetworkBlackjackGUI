@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Network;
@@ -28,11 +29,10 @@ namespace Forms
         public void Start()
         {
             foreach (Card c in server.getGame().getClientHand())
-            {
-                addCard(PLAYER.CLIENT, c);
-                Console.WriteLine("added to server gui.");
                 server.Send(server.s, c);
-            }
+
+            addCard(PLAYER.CLIENT, server.getGame().getClientHand()[0], true);
+            addCard(PLAYER.CLIENT, server.getGame().getClientHand()[1], false);
 
             bool turn = true;
 
@@ -44,7 +44,7 @@ namespace Forms
                 {
                     server.getGame().Hit(PLAYER.CLIENT);
                     Card c = server.getGame().getClientHand().Last();
-                    addCard(PLAYER.CLIENT, c);
+                    addCard(PLAYER.CLIENT, c, false);
                     server.Send(server.s, c);
                     bool bust = server.getGame().CheckBust(PLAYER.CLIENT);
                     if (bust)
@@ -64,7 +64,7 @@ namespace Forms
             foreach (Card c in server.getGame().getDealerHand())
             {
                 server.Send(server.s, c);
-                addCard(PLAYER.DEALER, c);
+                addCard(PLAYER.DEALER, c, false);
             }
             dealerTurn = true;
 
@@ -73,12 +73,23 @@ namespace Forms
         }
 
 
-        public void addCard(PLAYER p, Card c)
+        public void addCard(PLAYER p, Card c, bool flipped)
         {
-            if (p == PLAYER.CLIENT)
-                label1.Text += c.toString() + "\n";
+            PictureBox pB = new PictureBox
+            {
+                Size = MaximumSize,
+                Dock = DockStyle.Fill,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
+            if (flipped)
+                pB.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).FullName + "\\src\\img\\FLIPPED.png");
             else
-                label2.Text += c.toString() + "\n";
+                pB.Image = Image.FromFile(c.getImgPath());
+
+            if (p == PLAYER.CLIENT)
+                clientPanel.Controls.Add(pB);
+            else
+                dealerPanel.Controls.Add(pB);
         }
 
         public void CheckWin()
@@ -102,7 +113,7 @@ namespace Forms
                 server.Send(server.s, "y");
                 server.getGame().Hit(PLAYER.DEALER);
                 Card c = server.getGame().getDealerHand().Last();
-                addCard(PLAYER.DEALER, c);
+                addCard(PLAYER.DEALER, c, false);
                 server.Send(server.s, c.toString());
                 bool bust = server.getGame().CheckBust(PLAYER.DEALER);
                 if (bust)

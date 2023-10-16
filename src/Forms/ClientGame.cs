@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Network;
 using Blackjack;
 using System.Diagnostics;
+using System.IO;
 
 namespace Forms
 {
@@ -26,12 +27,24 @@ namespace Forms
             InitializeComponent();
         }
 
-        public void addCard(PLAYER p, Card c)
+        public void addCard(PLAYER p, Card c, bool flipped)
         {
-            if (p == PLAYER.CLIENT)
-                label1.Text += c.toString() + "\n";
+            PictureBox pB = new PictureBox
+            {
+                Size = MaximumSize,
+                Dock = DockStyle.Fill,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+            };
+
+            if (flipped)
+                pB.Image = Image.FromFile(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).FullName + "\\src\\img\\FLIPPED.png");
             else
-                label2.Text += c.toString() + "\n";
+                pB.Image = Image.FromFile(c.getImgPath());
+
+            if (p == PLAYER.CLIENT)
+                clientPanel.Controls.Add(pB);
+            else
+                dealerPanel.Controls.Add(pB);
         }
 
         public void dealerTurn()
@@ -41,10 +54,8 @@ namespace Forms
                 c.getGame().Hit(PLAYER.DEALER, new Card(c.Receive()));
                 c.getGame().Hit(PLAYER.DEALER, new Card(c.Receive()));
 
-                foreach (Card c in c.getGame().getDealerHand())
-                {
-                    addCard(PLAYER.DEALER, c);
-                }
+                addCard(PLAYER.DEALER, c.getGame().getDealerHand()[0], true);
+                addCard(PLAYER.DEALER, c.getGame().getDealerHand()[1], false);
 
                 bool bust;
                 string message;
@@ -55,7 +66,9 @@ namespace Forms
                     bust = false;
                     if (message.Equals("y"))
                     {
-                        c.getGame().Hit(PLAYER.DEALER, new Card(c.Receive()));
+                        Card card = new Card(c.Receive());
+                        c.getGame().Hit(PLAYER.DEALER, card);
+                        addCard(PLAYER.DEALER, card, false);
                         if (c.Receive() == "True")
                             bust = true;
                     }
@@ -84,7 +97,7 @@ namespace Forms
                 c.Send("y");
                 Card card = new Card(c.Receive());
                 c.getGame().Hit(PLAYER.CLIENT, card);
-                addCard(PLAYER.CLIENT, card);
+                addCard(PLAYER.CLIENT, card, false);
                 if (c.Receive() == "True")
                 {
                     MessageBox.Show("Bust. Dealer Wins");
@@ -113,10 +126,8 @@ namespace Forms
             c.getGame().Hit(PLAYER.CLIENT, new Card(c.Receive()));
             c.getGame().Hit(PLAYER.CLIENT, new Card(c.Receive()));
 
-            foreach (Card c in c.getGame().getClientHand())
-            {
-                addCard(PLAYER.CLIENT, c);
-            }
+            addCard(PLAYER.CLIENT, c.getGame().getClientHand()[0], false);
+            addCard(PLAYER.CLIENT, c.getGame().getClientHand()[1], false);
         }
     }
 }

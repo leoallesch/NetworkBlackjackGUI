@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\Blackjack\Card.cs" />
     <Compile Include="src\Blackjack\Deck.cs" />
     <Compile Include="src\Forms\ClientGame.cs">
@@ -100,16 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="img\DIAMOND\desktop.ini" />
-    <None Include="img\HEART\desktop.ini" />
-    <None Include="img\SPADE\desktop.ini" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,64 +117,67 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="src\img\DIAMOND\desktop.ini" />
+    <None Include="src\img\HEART\desktop.ini" />
+    <None Include="src\img\SPADE\desktop.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\CLUB\ACE.png" />
-    <Content Include="img\CLUB\EIGHT.png" />
-    <Content Include="img\CLUB\FIVE.png" />
-    <Content Include="img\CLUB\FOUR.png" />
-    <Content Include="img\CLUB\JACK.png" />
-    <Content Include="img\CLUB\KING.png" />
-    <Content Include="img\CLUB\NINE.png" />
-    <Content Include="img\CLUB\QUEEN.png" />
-    <Content Include="img\CLUB\SEVEN.png" />
-    <Content Include="img\CLUB\SIX.png" />
-    <Content Include="img\CLUB\TEN.png" />
-    <Content Include="img\CLUB\THREE.png" />
-    <Content Include="img\CLUB\TWO.png" />
-    <Content Include="img\DIAMOND\ACE.png" />
-    <Content Include="img\DIAMOND\EIGHT.png" />
-    <Content Include="img\DIAMOND\FIVE.png" />
-    <Content Include="img\DIAMOND\FOUR.png" />
-    <Content Include="img\DIAMOND\JACK.png" />
-    <Content Include="img\DIAMOND\KING.png" />
-    <Content Include="img\DIAMOND\NINE.png" />
-    <Content Include="img\DIAMOND\QUEEN.png" />
-    <Content Include="img\DIAMOND\SEVEN.png" />
-    <Content Include="img\DIAMOND\SIX.png" />
-    <Content Include="img\DIAMOND\TEN.png" />
-    <Content Include="img\DIAMOND\THREE.png" />
-    <Content Include="img\DIAMOND\TWO.png" />
-    <Content Include="img\FLIPPED.png" />
-    <Content Include="img\HEART\ACE.png" />
-    <Content Include="img\HEART\EIGHT.png" />
-    <Content Include="img\HEART\FIVE.png" />
-    <Content Include="img\HEART\FOUR.png" />
-    <Content Include="img\HEART\JACK.png" />
-    <Content Include="img\HEART\KING.png" />
-    <Content Include="img\HEART\NINE.png" />
-    <Content Include="img\HEART\QUEEN.png" />
-    <Content Include="img\HEART\SEVEN.png" />
-    <Content Include="img\HEART\SIX.png" />
-    <Content Include="img\HEART\TEN.png" />
-    <Content Include="img\HEART\THREE.png" />
-    <Content Include="img\HEART\TWO.png" />
-    <Content Include="img\SPADE\ACE.png" />
-    <Content Include="img\SPADE\EIGHT.png" />
-    <Content Include="img\SPADE\FIVE.png" />
-    <Content Include="img\SPADE\FOUR.png" />
-    <Content Include="img\SPADE\JACK.png" />
-    <Content Include="img\SPADE\KING.png" />
-    <Content Include="img\SPADE\NINE.png" />
-    <Content Include="img\SPADE\QUEEN.png" />
-    <Content Include="img\SPADE\SEVEN.png" />
-    <Content Include="img\SPADE\SIX.png" />
-    <Content Include="img\SPADE\TEN.png" />
-    <Content Include="img\SPADE\THREE.png" />
-    <Content Include="img\SPADE\TWO.png" />
+    <Content Include="src\img\CLUB\ACE.png" />
+    <Content Include="src\img\CLUB\EIGHT.png" />
+    <Content Include="src\img\CLUB\FIVE.png" />
+    <Content Include="src\img\CLUB\FOUR.png" />
+    <Content Include="src\img\CLUB\JACK.png" />
+    <Content Include="src\img\CLUB\KING.png" />
+    <Content Include="src\img\CLUB\NINE.png" />
+    <Content Include="src\img\CLUB\QUEEN.png" />
+    <Content Include="src\img\CLUB\SEVEN.png" />
+    <Content Include="src\img\CLUB\SIX.png" />
+    <Content Include="src\img\CLUB\TEN.png" />
+    <Content Include="src\img\CLUB\THREE.png" />
+    <Content Include="src\img\CLUB\TWO.png" />
+    <Content Include="src\img\DIAMOND\ACE.png" />
+    <Content Include="src\img\DIAMOND\EIGHT.png" />
+    <Content Include="src\img\DIAMOND\FIVE.png" />
+    <Content Include="src\img\DIAMOND\FOUR.png" />
+    <Content Include="src\img\DIAMOND\JACK.png" />
+    <Content Include="src\img\DIAMOND\KING.png" />
+    <Content Include="src\img\DIAMOND\NINE.png" />
+    <Content Include="src\img\DIAMOND\QUEEN.png" />
+    <Content Include="src\img\DIAMOND\SEVEN.png" />
+    <Content Include="src\img\DIAMOND\SIX.png" />
+    <Content Include="src\img\DIAMOND\TEN.png" />
+    <Content Include="src\img\DIAMOND\THREE.png" />
+    <Content Include="src\img\DIAMOND\TWO.png" />
+    <Content Include="src\img\FLIPPED.png" />
+    <Content Include="src\img\HEART\ACE.png" />
+    <Content Include="src\img\HEART\EIGHT.png" />
+    <Content Include="src\img\HEART\FIVE.png" />
+    <Content Include="src\img\HEART\FOUR.png" />
+    <Content Include="src\img\HEART\JACK.png" />
+    <Content Include="src\img\HEART\KING.png" />
+    <Content Include="src\img\HEART\NINE.png" />
+    <Content Include="src\img\HEART\QUEEN.png" />
+    <Content Include="src\img\HEART\SEVEN.png" />
+    <Content Include="src\img\HEART\SIX.png" />
+    <Content Include="src\img\HEART\TEN.png" />
+    <Content Include="src\img\HEART\THREE.png" />
+    <Content Include="src\img\HEART\TWO.png" />
+    <Content Include="src\img\SPADE\ACE.png" />
+    <Content Include="src\img\SPADE\EIGHT.png" />
+    <Content Include="src\img\SPADE\FIVE.png" />
+    <Content Include="src\img\SPADE\FOUR.png" />
+    <Content Include="src\img\SPADE\JACK.png" />
+    <Content Include="src\img\SPADE\KING.png" />
+    <Content Include="src\img\SPADE\NINE.png" />
+    <Content Include="src\img\SPADE\QUEEN.png" />
+    <Content Include="src\img\SPADE\SEVEN.png" />
+    <Content Include="src\img\SPADE\SIX.png" />
+    <Content Include="src\img\SPADE\TEN.png" />
+    <Content Include="src\img\SPADE\THREE.png" />
+    <Content Include="src\img\SPADE\TWO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
