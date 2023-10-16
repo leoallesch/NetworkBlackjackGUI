@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1927395A-0EB6-4014-827E-1B9D15C766F1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NetworkBlackjackGUI</RootNamespace>
+    <AssemblyName>NetworkBlackjackGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Blackjack\Card.cs" />
+    <Compile Include="src\Blackjack\Deck.cs" />
+    <Compile Include="src\Forms\ClientGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ClientGame.Designer.cs">
+      <DependentUpon>ClientGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ClientStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ClientStart.Designer.cs">
+      <DependentUpon>ClientStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\SelectMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\SelectMode.Designer.cs">
+      <DependentUpon>SelectMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ServerGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ServerGame.Designer.cs">
+      <DependentUpon>ServerGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ServerStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ServerStart.Designer.cs">
+      <DependentUpon>ServerStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Blackjack\Game.cs" />
+    <Compile Include="src\NetworkBlackjackGUI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Network\Client.cs" />
+    <Compile Include="src\Network\Server.cs" />
+    <EmbeddedResource Include="src\Forms\ClientGame.resx">
+      <DependentUpon>ClientGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ClientStart.resx">
+      <DependentUpon>ClientStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\SelectMode.resx">
+      <DependentUpon>SelectMode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ServerGame.resx">
+      <DependentUpon>ServerGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\ServerStart.resx">
+      <DependentUpon>ServerStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="img\DIAMOND\desktop.ini" />
+    <None Include="img\HEART\desktop.ini" />
+    <None Include="img\SPADE\desktop.ini" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\CLUB\ACE.png" />
+    <Content Include="img\CLUB\EIGHT.png" />
+    <Content Include="img\CLUB\FIVE.png" />
+    <Content Include="img\CLUB\FOUR.png" />
+    <Content Include="img\CLUB\JACK.png" />
+    <Content Include="img\CLUB\KING.png" />
+    <Content Include="img\CLUB\NINE.png" />
+    <Content Include="img\CLUB\QUEEN.png" />
+    <Content Include="img\CLUB\SEVEN.png" />
+    <Content Include="img\CLUB\SIX.png" />
+    <Content Include="img\CLUB\TEN.png" />
+    <Content Include="img\CLUB\THREE.png" />
+    <Content Include="img\CLUB\TWO.png" />
+    <Content Include="img\DIAMOND\ACE.png" />
+    <Content Include="img\DIAMOND\EIGHT.png" />
+    <Content Include="img\DIAMOND\FIVE.png" />
+    <Content Include="img\DIAMOND\FOUR.png" />
+    <Content Include="img\DIAMOND\JACK.png" />
+    <Content Include="img\DIAMOND\KING.png" />
+    <Content Include="img\DIAMOND\NINE.png" />
+    <Content Include="img\DIAMOND\QUEEN.png" />
+    <Content Include="img\DIAMOND\SEVEN.png" />
+    <Content Include="img\DIAMOND\SIX.png" />
+    <Content Include="img\DIAMOND\TEN.png" />
+    <Content Include="img\DIAMOND\THREE.png" />
+    <Content Include="img\DIAMOND\TWO.png" />
+    <Content Include="img\FLIPPED.png" />
+    <Content Include="img\HEART\ACE.png" />
+    <Content Include="img\HEART\EIGHT.png" />
+    <Content Include="img\HEART\FIVE.png" />
+    <Content Include="img\HEART\FOUR.png" />
+    <Content Include="img\HEART\JACK.png" />
+    <Content Include="img\HEART\KING.png" />
+    <Content Include="img\HEART\NINE.png" />
+    <Content Include="img\HEART\QUEEN.png" />
+    <Content Include="img\HEART\SEVEN.png" />
+    <Content Include="img\HEART\SIX.png" />
+    <Content Include="img\HEART\TEN.png" />
+    <Content Include="img\HEART\THREE.png" />
+    <Content Include="img\HEART\TWO.png" />
+    <Content Include="img\SPADE\ACE.png" />
+    <Content Include="img\SPADE\EIGHT.png" />
+    <Content Include="img\SPADE\FIVE.png" />
+    <Content Include="img\SPADE\FOUR.png" />
+    <Content Include="img\SPADE\JACK.png" />
+    <Content Include="img\SPADE\KING.png" />
+    <Content Include="img\SPADE\NINE.png" />
+    <Content Include="img\SPADE\QUEEN.png" />
+    <Content Include="img\SPADE\SEVEN.png" />
+    <Content Include="img\SPADE\SIX.png" />
+    <Content Include="img\SPADE\TEN.png" />
+    <Content Include="img\SPADE\THREE.png" />
+    <Content Include="img\SPADE\TWO.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
